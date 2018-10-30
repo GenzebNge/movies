@@ -12,7 +12,9 @@ public class Actor {
     private long id;
     private String name;
     private String realName;
+    private String age;
    @ManyToMany(mappedBy="cast")
+
     private Set<Movie> movies;
 
 
@@ -47,5 +49,13 @@ public class Actor {
 
     public void setMovies(Set<Movie> movies) {
         this.movies = movies;
+    }
+
+    public String getAge() {
+        return age;
+    }
+
+    public void setAge(String age) {
+        this.age = age;
     }
 }
