@@ -1,6 +1,7 @@
 package movies.movies;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 @Entity
 public class Movie {
@@ -16,18 +17,13 @@ public class Movie {
 
 
     public Movie() {
+        cast= new HashSet<>();
     }
 
     public long getId() {
         return id;
     }
 
-//    public Movie(String title, long year, String description, Set<Actor> cast) {
-//        this.title = title;
-//        this.year = year;
-//        this.description = description;
-//        this.cast = cast;
-//    }
 
     public void setId(long id) {
         this.id = id;

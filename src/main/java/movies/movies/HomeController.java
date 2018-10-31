@@ -22,37 +22,35 @@ public class HomeController {
         Set<Movie> movies = new HashSet<Movie>();
 
         Actor actor = new Actor();
-        actor.setName("Sandra Bullocke");
-        actor.setRealName("Sandra Mae Bullowski");
-        actor.setAge("24");
+        actor.setName("new movie");
+        actor.setRealName("adreano mores");
+        actor.setAge("23");
 
         Set<Actor> actors = new HashSet<>();
         actors.add(actor);
 
-
-
         Movie movie = new Movie();
-        movie.setTitle("Emoji Movie");
+        movie.setTitle("old");
         movie.setYear(2017);
-        movie.setDescription("About Emoji movie");
-
+        movie.setDescription("Description about First Movie");
         movies.add(movie);
-        Movie othermovie = new Movie();
-        movie.setTitle("Big Bang");
-        movie.setYear(2013);
-        movie.setDescription("The best movies i hav ever seen");
-        movies.add(othermovie);
+        movieRepository.save(movie);
 
+        Movie othermovie = new Movie();
+        othermovie.setTitle("mymovie");
+        othermovie.setYear(2013);
+        othermovie.setDescription("The second movie description");
+        movies.add(othermovie);
+        movieRepository.save(othermovie);
 
         Movie anOtherMovie = new Movie();
-        anOtherMovie.setTitle("anOtherMovie");
+        anOtherMovie.setTitle("coming soon");
         anOtherMovie.setYear(2000);
-        anOtherMovie.setDescription("She is a cop who goes undercover");
-
+        anOtherMovie.setDescription("Thrid movie description");
 
         //add the movie to an empty  list
-        movies.add(anOtherMovie);
-
+         movies.add(anOtherMovie);
+         movieRepository.save(anOtherMovie);
 
         // add the list of movies to the actor's movie list
         actor.setMovies(movies);
@@ -62,6 +60,7 @@ public class HomeController {
         //Grade all actors from the database and send them to the template.
 
         model.addAttribute("actors", actorRepository.findAll());
+        model.addAttribute("movie", movieRepository.findAll());
         return "index";
     }
 }

@@ -13,6 +13,7 @@ public class Actor {
     private String name;
     private String realName;
     private String age;
+
    @ManyToMany(mappedBy="cast")
 
     private Set<Movie> movies;
